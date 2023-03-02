@@ -1,0 +1,20 @@
+global:
+  scrape_interval: 1m
+scrape_configs:
+- job_name: prometheus
+  scrape_interval: 1m
+  scrape_timeout: 50s
+  metrics_path: /metrics
+  scheme: http
+  static_configs:
+  - targets:
+    - localhost:9090
+- job_name: aula
+  static_configs:
+  - targets:
+    - 192.168.10.126:3030
+- job_name: servidor
+  static_configs:
+  - targets:
+    - speedtest:9112
+  scrape_timeout: 1m
